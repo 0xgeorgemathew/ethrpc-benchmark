@@ -1,0 +1,25 @@
+{
+  "name": "ethrpc-benchmark",
+  "version": "1.0.0",
+  "description": "Benchmarking Ethereum RPCs and Local Node",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ethers": "^6.11.1"
+  },
+    "devDependencies": {
+    "@types/node": "^20.11.17",
+    "@types/node-telegram-bot-api": "^0.64.2",
+    "@types/ws": "^8.5.10",
+    "dotenv": "^16.4.4",
+    "typescript": "^5.3.3"
+  }
+}
+
