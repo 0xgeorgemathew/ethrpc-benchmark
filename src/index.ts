@@ -4,8 +4,8 @@ import { benchmarkGetPoolState } from "./benchmarkPoolState";
 import { benchmarkBlockNumber } from "./benchmarkBlockNumber";
 config();
 
-const FREE_RPC_URL = process.env.ALCHEMY_FREE_RPC_URL || "";
-const PAID_RPC_URL = process.env.ALCHEMY_PAID_RPC_URL || "";
+const FREE_RPC_URL = process.env.FREE_RPC_URL || "";
+const PAID_RPC_URL = process.env.PAID_RPC_URL || "";
 
 // const benchmarkTxRequests = async (
 //   provider: ethers.Provider,
