@@ -22,6 +22,11 @@ const main = async () => {
   const localProvider = new ethers.JsonRpcProvider("http://127.0.0.1:8545");
 
   const blockNumber = await freeProvider.getBlockNumber();
+  console.log("BlockNumber Free: ", blockNumber);
+  const blockNumberPaid = await paidProvider.getBlockNumber();
+  console.log("BlockNumber Paid: ", blockNumberPaid);
+  const blockNumberLocal = await localProvider.getBlockNumber();
+  console.log("BlockNumber Local: ", blockNumberLocal);
 
   console.log("Starting BlockNumber benchmarks");
 
