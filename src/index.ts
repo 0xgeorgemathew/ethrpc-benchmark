@@ -22,7 +22,7 @@ const main = async () => {
 
   const blockNumber = await freeProvider.getBlockNumber();
 
-  console.log("Starting benchmarks...");
+  console.log("Starting benchmarks");
 
   const startFree = Date.now();
   await benchmarkTxRequests(freeProvider, blockNumber);
