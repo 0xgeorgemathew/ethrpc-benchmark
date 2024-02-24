@@ -69,11 +69,11 @@ const main = async () => {
     const startPaidPoolState = Date.now();
     const averageTime = await benchmarkGetPoolState(paidProvider);
     console.log(
-      `\n\nPaid tier\n\nTotal time: ${
+      `\n\nPaid tier\n\nTotal time    : ${
         (Date.now() - startPaidPoolState) / 1000
       } seconds`
     );
-    console.log(`Average time: ${averageTime.toFixed(4)} seconds`);
+    console.log(`Average time  : ${averageTime.toFixed(4)} seconds`);
   } catch (error) {
     console.log("Error in Paid tier: ", error);
   }
@@ -81,11 +81,11 @@ const main = async () => {
     const startLocalPoolState = Date.now();
     const averageTime = await benchmarkGetPoolState(localProvider);
     console.log(
-      `\n\nLocal Node\n\nTotal time: ${
+      `\n\nLocal Node\n\nTotal time    : ${
         (Date.now() - startLocalPoolState) / 1000
       } seconds`
     );
-    console.log(`Average time: ${averageTime.toFixed(4)} seconds`);
+    console.log(`Average time:  ${averageTime.toFixed(4)} seconds`);
   } catch (error) {
     console.log("Error in Local: ", error);
   }
