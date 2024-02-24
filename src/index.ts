@@ -57,7 +57,7 @@ const main = async () => {
     await benchmarkGetPoolState(freeProvider);
 
     console.log(
-      `Free tier\n\n Total time: ${
+      `Free tier\n\nTotal time: ${
         (Date.now() - startFreePoolState) / 1000
       } seconds`
     );
@@ -68,7 +68,7 @@ const main = async () => {
     const startPaidPoolState = Date.now();
     await benchmarkGetPoolState(paidProvider);
     console.log(
-      `Paid tier\n\n Total time: ${
+      `Paid tier\n\nTotal time: ${
         (Date.now() - startPaidPoolState) / 1000
       } seconds`
     );
@@ -79,7 +79,7 @@ const main = async () => {
     const startLocalPoolState = Date.now();
     await benchmarkGetPoolState(localProvider);
     console.log(
-      `Local Node\n\n Total time: ${
+      `Local Node\n\nTotal time: ${
         (Date.now() - startLocalPoolState) / 1000
       } seconds`
     );
