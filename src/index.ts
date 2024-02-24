@@ -51,17 +51,17 @@ const main = async () => {
   } catch (error) {
     console.log("Error in Local: ", error);
   }
-  console.log("Starting pool state benchmarks\n\n");
+  console.log("Starting pool state benchmarks");
   try {
     const startFreePoolState = Date.now();
     const averageTime = await benchmarkGetPoolState(freeProvider);
 
     console.log(
-      `\n\nFree tier\n\nTotal time: ${
+      `\n\nFree tier\n\nTotal time  : ${
         (Date.now() - startFreePoolState) / 1000
       } seconds`
     );
-    console.log(`Average time: ${averageTime.toFixed(4)} seconds`);
+    console.log(`Average time   : ${averageTime.toFixed(4)} seconds`);
   } catch (error) {
     console.log("Error in Free tier: ", error);
   }
