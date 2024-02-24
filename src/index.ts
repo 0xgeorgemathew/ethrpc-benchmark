@@ -55,8 +55,11 @@ const main = async () => {
   try {
     const startFreePoolState = Date.now();
     await benchmarkGetPoolState(freeProvider);
+
     console.log(
-      `Free tier: ${(Date.now() - startFreePoolState) / 1000} seconds`
+      `Free tier\n\n Total time: ${
+        (Date.now() - startFreePoolState) / 1000
+      } seconds`
     );
   } catch (error) {
     console.log("Error in Free tier: ", error);
@@ -65,7 +68,9 @@ const main = async () => {
     const startPaidPoolState = Date.now();
     await benchmarkGetPoolState(paidProvider);
     console.log(
-      `Paid tier: ${(Date.now() - startPaidPoolState) / 1000} seconds`
+      `Paid tier\n\n Total time: ${
+        (Date.now() - startPaidPoolState) / 1000
+      } seconds`
     );
   } catch (error) {
     console.log("Error in Paid tier: ", error);
@@ -73,7 +78,11 @@ const main = async () => {
   try {
     const startLocalPoolState = Date.now();
     await benchmarkGetPoolState(localProvider);
-    console.log(`Local: ${(Date.now() - startLocalPoolState) / 1000} seconds`);
+    console.log(
+      `Local Node\n\n Total time: ${
+        (Date.now() - startLocalPoolState) / 1000
+      } seconds`
+    );
   } catch (error) {
     console.log("Error in Local: ", error);
   }
