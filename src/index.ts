@@ -61,7 +61,7 @@ const main = async () => {
         (Date.now() - startFreePoolState) / 1000
       } seconds`
     );
-    console.log(`Average time   : ${averageTime.toFixed(4)} seconds`);
+    console.log(`Average time  : ${averageTime.toFixed(4)} seconds`);
   } catch (error) {
     console.log("Error in Free tier: ", error);
   }
