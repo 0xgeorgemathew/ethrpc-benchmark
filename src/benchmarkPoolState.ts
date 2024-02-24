@@ -60,5 +60,6 @@ export const benchmarkGetPoolState = async (provider: ethers.Provider) => {
     // console.log(`Pool ${uniswapV3PoolAddress}:`, provider);
   }
   const averageTime = totalTime / numCalls / 1000;
-  console.log(`Average time: ${averageTime.toFixed(4)} seconds`);
+  // console.log(`Average time: ${averageTime.toFixed(4)} seconds`);
+  return averageTime;
 };
