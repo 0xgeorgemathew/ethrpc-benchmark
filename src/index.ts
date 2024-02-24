@@ -28,7 +28,7 @@ const main = async () => {
     const startFreeBlockNumber = Date.now();
     await benchmarkBlockNumber(freeProvider, blockNumber);
     console.log(
-      `Free tier  :${(Date.now() - startFreeBlockNumber) / 1000} seconds`
+      `Free tier  : ${(Date.now() - startFreeBlockNumber) / 1000} seconds`
     );
   } catch (error) {
     console.log("Error in Free tier: ", error);
@@ -37,7 +37,7 @@ const main = async () => {
     const startPaidBlockNumber = Date.now();
     await benchmarkBlockNumber(paidProvider, blockNumber);
     console.log(
-      `Paid tier  :${(Date.now() - startPaidBlockNumber) / 1000} seconds`
+      `Paid tier  : ${(Date.now() - startPaidBlockNumber) / 1000} seconds`
     );
   } catch (error) {
     console.log("Error in Paid tier: ", error);
@@ -46,7 +46,7 @@ const main = async () => {
     const startLocalBlockNumber = Date.now();
     await benchmarkBlockNumber(localProvider, blockNumber);
     console.log(
-      `Local Node  :${(Date.now() - startLocalBlockNumber) / 1000} seconds\n\n`
+      `Local Node : ${(Date.now() - startLocalBlockNumber) / 1000} seconds\n\n`
     );
   } catch (error) {
     console.log("Error in Local: ", error);
