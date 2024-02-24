@@ -51,12 +51,14 @@ export const benchmarkGetPoolState = async (provider: ethers.Provider) => {
     await pool.slot0();
     const endTime = Date.now();
 
-    const timeTaken = (endTime - startTime) / 1000;
-    totalTime += timeTaken;
-    console.log(`Pool ${uniswapV3PoolAddress}: ${timeTaken} seconds`);
+    totalTime += endTime - startTime;
+
+    console.log(
+      `Pool ${uniswapV3PoolAddress}: ${(endTime - startTime) / 1000} seconds`
+    );
 
     // console.log(`Pool ${uniswapV3PoolAddress}:`, provider);
   }
-  const averageTime = totalTime / numCalls;
+  const averageTime = totalTime / numCalls / 1000;
   console.log(`Average time per call: ${averageTime} seconds`);
 };
