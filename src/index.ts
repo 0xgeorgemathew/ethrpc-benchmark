@@ -57,7 +57,7 @@ const main = async () => {
     const averageTime = await benchmarkGetPoolState(freeProvider);
 
     console.log(
-      `\n\nFree tier\n\nTotal time  : ${
+      `\n\nFree tier\n\nTotal time   : ${
         (Date.now() - startFreePoolState) / 1000
       } seconds`
     );
