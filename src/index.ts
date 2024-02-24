@@ -46,7 +46,7 @@ const main = async () => {
     const startLocalBlockNumber = Date.now();
     await benchmarkBlockNumber(localProvider, blockNumber);
     console.log(
-      `Local: ${(Date.now() - startLocalBlockNumber) / 1000} seconds\n\n`
+      `Local Node: ${(Date.now() - startLocalBlockNumber) / 1000} seconds\n\n`
     );
   } catch (error) {
     console.log("Error in Local: ", error);
@@ -57,7 +57,7 @@ const main = async () => {
     const averageTime = await benchmarkGetPoolState(freeProvider);
 
     console.log(
-      `Free tier\n\nTotal time: ${
+      `\n\nFree tier\n\nTotal time: ${
         (Date.now() - startFreePoolState) / 1000
       } seconds`
     );
@@ -69,7 +69,7 @@ const main = async () => {
     const startPaidPoolState = Date.now();
     const averageTime = await benchmarkGetPoolState(paidProvider);
     console.log(
-      `Paid tier\n\nTotal time: ${
+      `\n\nPaid tier\n\nTotal time: ${
         (Date.now() - startPaidPoolState) / 1000
       } seconds`
     );
@@ -81,7 +81,7 @@ const main = async () => {
     const startLocalPoolState = Date.now();
     const averageTime = await benchmarkGetPoolState(localProvider);
     console.log(
-      `Local Node\n\nTotal time: ${
+      `\n\nLocal Node\n\nTotal time: ${
         (Date.now() - startLocalPoolState) / 1000
       } seconds`
     );
