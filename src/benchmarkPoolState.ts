@@ -13,6 +13,8 @@ export const benchmarkGetPoolState = async (provider: ethers.Provider) => {
     "0xe8c6c9227491c0a8156a0106a0204d881bb7e531",
     "0x9db9e0e53058c89e5b94e29621a205198648425b",
   ];
+  let totalTime = 0;
+  const numCalls = uniswapV3PoolAddresses.length;
   const uniswapV3PoolAbi = [
     {
       inputs: [],
@@ -45,7 +47,16 @@ export const benchmarkGetPoolState = async (provider: ethers.Provider) => {
       uniswapV3PoolAbi,
       provider
     );
-    const slot0 = await pool.slot0();
-    // console.log(`Pool ${poolAddress}:`, slot0);
+    const startTime = Date.now();
+    await pool.slot0();
+    const endTime = Date.now();
+
+    const timeTaken = (endTime - startTime) / 1000;
+    totalTime += timeTaken;
+    console.log(`Pool ${uniswapV3PoolAddress}: ${timeTaken} seconds`);
+
+    // console.log(`Pool ${uniswapV3PoolAddress}:`, provider);
   }
+  const averageTime = totalTime / numCalls;
+  console.log(`Average time per call: ${averageTime} seconds`);
 };

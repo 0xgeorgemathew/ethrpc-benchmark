@@ -23,40 +23,38 @@ const main = async () => {
 
   const blockNumber = await freeProvider.getBlockNumber();
 
-  console.log("Starting BlockNumber benchmarks\n\n");
-  try {
-    const startFreeBlockNumber = Date.now();
-    await benchmarkBlockNumber(freeProvider, blockNumber);
-    console.log(
-      `Free tier: ${(Date.now() - startFreeBlockNumber) / 1000} seconds`
-    );
-  } catch (error) {
-    console.log("Error in Free tier: ", error);
-  }
-  try {
-    const startPaidBlockNumber = Date.now();
-    await benchmarkBlockNumber(paidProvider, blockNumber);
-    console.log(
-      `Paid tier: ${(Date.now() - startPaidBlockNumber) / 1000} seconds`
-    );
-  } catch (error) {
-    console.log("Error in Paid tier: ", error);
-  }
-  try {
-    const startLocalBlockNumber = Date.now();
-    await benchmarkBlockNumber(localProvider, blockNumber);
-    console.log(
-      `Local: ${(Date.now() - startLocalBlockNumber) / 1000} seconds`
-    );
-  } catch (error) {
-    console.log("Error in Local: ", error);
-  }
+  console.log("\n\nStarting BlockNumber benchmarks\n\n");
+  // try {
+  //   const startFreeBlockNumber = Date.now();
+  //   await benchmarkBlockNumber(freeProvider, blockNumber);
+  //   console.log(
+  //     `Free tier: ${(Date.now() - startFreeBlockNumber) / 1000} seconds`
+  //   );
+  // } catch (error) {
+  //   console.log("Error in Free tier: ", error);
+  // }
+  // try {
+  //   const startPaidBlockNumber = Date.now();
+  //   await benchmarkBlockNumber(paidProvider, blockNumber);
+  //   console.log(
+  //     `Paid tier: ${(Date.now() - startPaidBlockNumber) / 1000} seconds`
+  //   );
+  // } catch (error) {
+  //   console.log("Error in Paid tier: ", error);
+  // }
+  // try {
+  //   const startLocalBlockNumber = Date.now();
+  //   await benchmarkBlockNumber(localProvider, blockNumber);
+  //   console.log(
+  //     `Local: ${(Date.now() - startLocalBlockNumber) / 1000} seconds\n\n`
+  //   );
+  // } catch (error) {
+  //   console.log("Error in Local: ", error);
+  // }
   console.log("Starting pool state benchmarks\n\n");
   try {
     const startFreePoolState = Date.now();
-    for (let i = 0; i < 10; i++) {
-      await benchmarkGetPoolState(freeProvider);
-    }
+    await benchmarkGetPoolState(freeProvider);
     console.log(
       `Free tier: ${(Date.now() - startFreePoolState) / 10000} seconds`
     );
@@ -65,9 +63,7 @@ const main = async () => {
   }
   try {
     const startPaidPoolState = Date.now();
-    for (let i = 0; i < 10; i++) {
-      await benchmarkGetPoolState(paidProvider);
-    }
+    await benchmarkGetPoolState(paidProvider);
     console.log(
       `Paid tier: ${(Date.now() - startPaidPoolState) / 10000} seconds`
     );
@@ -76,9 +72,7 @@ const main = async () => {
   }
   try {
     const startLocalPoolState = Date.now();
-    for (let i = 0; i < 10; i++) {
-      await benchmarkGetPoolState(localProvider);
-    }
+    await benchmarkGetPoolState(localProvider);
     console.log(`Local: ${(Date.now() - startLocalPoolState) / 10000} seconds`);
   } catch (error) {
     console.log("Error in Local: ", error);
