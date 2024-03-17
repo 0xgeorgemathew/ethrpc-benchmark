@@ -6,6 +6,7 @@ config();
 
 const FREE_RPC_URL = process.env.FREE_RPC_URL || "";
 const PAID_RPC_URL = process.env.PAID_RPC_URL || "";
+const ALCHMEY_RPC_URL = process.env.ALCHMEY_RPC_URL || "";
 
 // const benchmarkTxRequests = async (
 //   provider: ethers.Provider,
@@ -19,6 +20,7 @@ const PAID_RPC_URL = process.env.PAID_RPC_URL || "";
 const main = async () => {
   const freeProvider = new ethers.JsonRpcProvider(FREE_RPC_URL);
   const paidProvider = new ethers.JsonRpcProvider(PAID_RPC_URL);
+  const alchmeyProvider = new ethers.JsonRpcProvider(ALCHMEY_RPC_URL);
   const localProvider = new ethers.JsonRpcProvider("http://127.0.0.1:8545");
 
   const blockNumber = await freeProvider.getBlockNumber();
@@ -32,6 +34,17 @@ const main = async () => {
     );
   } catch (error) {
     console.log("Error in Free tier: ", error);
+  }
+  try {
+    const startPaidBlockNumber = Date.now();
+    await benchmarkBlockNumber(alchmeyProvider, blockNumber);
+    console.log(
+      `Alchmey Free tier  : ${
+        (Date.now() - startPaidBlockNumber) / 1000
+      } seconds`
+    );
+  } catch (error) {
+    console.log("Error in Alchmey Free tier: ", error);
   }
   try {
     const startPaidBlockNumber = Date.now();
